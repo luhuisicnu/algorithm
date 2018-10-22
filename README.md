@@ -1,7 +1,10 @@
 # 通用
-## 参数
-* -s：展示排序步骤
+## 细节展示
+* -s：展示执行步骤细节
+
+## 排序参数
 * -d：倒序排列
+
 
 # 插入排序
 ## 运行办法
@@ -63,4 +66,54 @@ select right 0
 status [9 8 6 5 0]
 
 [9 8 6 5 0]
+```
+
+# 查找最大子数组
+## 暴力求解
+### 运行办法
+```
+$ go run find_max_subarray_n2.go -s 3 -8 2
+start find: [3 -8 2]
+
+get: start index 0 end index 0 current max sum 3
+pass: start index 0 end index 1 sum -5 is less than max sum 3
+pass: start index 0 end index 2 sum -3 is less than max sum 3
+pass: this index 1 element -8  is less than max sum 3
+pass: start index 1 end index 2 sum -6 is less than max sum 3
+pass: this index 2 element 2  is less than max sum 3
+
+start index: 0 end index: 0 sum: 3
+```
+
+## 左右划分递归求解
+### 运行办法
+```
+$ go run find_max_subarray_nlgn.go -s 3 -8 2
+start find: [3 -8 2]
+
+split array to left [3] and right [-8 2]
+side get: index 0 sum 3
+split array to left [-8] and right [2]
+side get: index 1 sum -8
+side get: index 2 sum 2
+cross start: left index 1 right index 3 source [-8 2]
+cross get: left extend, index 1 temp sum -8 left sum -9223372036854775808
+cross get: find bigger sum, left index 1 mid index 2 sum -8
+cross get: right extend, index 2 temp sum 2 right sum -9223372036854775808
+cross get: find bigger sum, mid index 2 right index 2 sum 2
+cross end: left index 1 right index 2 sum -6
+left array [-8] left max sum -8 right array [2] right max sum 2 cross array [-8 2] cross max sum -6
+get: low index 2 high index 2 sum 2
+cross start: left index 0 right index 3 source [3 -8 2]
+cross get: left extend, index 0 temp sum 3 left sum -9223372036854775808
+cross get: find bigger sum, left index 0 mid index 1 sum 3
+cross get: right extend, index 1 temp sum -8 right sum -9223372036854775808
+cross get: find bigger sum, mid index 1 right index 1 sum -8
+cross get: right extend, index 2 temp sum -6 right sum -8
+cross get: find bigger sum, mid index 1 right index 2 sum -6
+cross end: left index 0 right index 2 sum -3
+left array [3] left max sum 3 right array [-8 2] right max sum 2 cross array [3 -8 2] cross max sum -3
+get: low index 0 high index 0 sum 3
+
+start index: 0 end index: 0 sum: 3
 ```
