@@ -68,6 +68,35 @@ status [9 8 6 5 0]
 [9 8 6 5 0]
 ```
 
+# 堆排序
+## 运行办法
+```
+$ go run heap_sort.go -s 3 5 1
+build: start build a max heap [3 5 1]
+max heapifing: index 0 left index 1 right index 2
+max heapifing: left value 5 is more than this value 3
+max heapifing: source [3 5 1]
+max heapifing: exchange value 5 and 3
+max heapifing: index 1 left index -1 right index -1
+max heapifing: nothing to do
+max heapifing: exchange result [5 3 1]
+build: build a new max heap [5 3 1]
+sort: exchange first value 5 and this value 1
+sort: source [1 3 5]
+max heapifing: index 0 left index 1 right index -1
+max heapifing: left value 3 is more than this value 1
+max heapifing: source [1 3 5]
+max heapifing: exchange value 3 and 1
+max heapifing: index 1 left index -1 right index -1
+max heapifing: nothing to do
+max heapifing: exchange result [3 1 5]
+sort: exchange first value 3 and this value 1
+sort: source [1 3 5]
+max heapifing: index 0 left index -1 right index -1
+max heapifing: nothing to do
+[1 3 5]
+```
+
 # 查找最大子数组
 ## 暴力求解
 ### 运行办法
