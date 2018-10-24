@@ -97,6 +97,40 @@ max heapifing: nothing to do
 [1 3 5]
 ```
 
+# 快速排序
+## 运行办法
+```
+$ go run quick_sort.go -s -d 3 5 1
+sort: source [3 5 1] start index 0 end index 3
+partition: source [3 5 1]
+partition: find last value as key 1
+partition: start part
+partition: index 0 value 3 is more than key value
+partition: exchange  3 3
+partition: middle result [3 5 1]
+partition: index 1 value 5 is more than key value
+partition: exchange  5 5
+partition: middle result [3 5 1]
+partition: exchange key value 1 and first bigger value 1
+partition: result [3 5 1]
+sort: find a middle index 2
+sort: source [3 5] start index 0 end index 2
+partition: source [3 5]
+partition: find last value as key 5
+partition: start part
+partition: nothing to do with index 0 value 3
+partition: exchange key value 5 and first bigger value 3
+partition: result [5 3]
+sort: find a middle index 0
+sort: source [] start index 0 end index 0
+sort: nothing to do
+sort: source [3] start index 1 end index 2
+sort: nothing to do
+sort: source [] start index 3 end index 3
+sort: nothing to do
+[5 3 1]
+```
+
 # 查找最大子数组
 ## 暴力求解
 ### 运行办法
