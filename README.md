@@ -131,6 +131,23 @@ sort: nothing to do
 [5 3 1]
 ```
 
+# 计数排序
+## 运行办法
+```
+$ go run counting_sort.go -s 3 2 1
+sort: temp counting array init success [0 1 2 3]
+sort: result index 1 get value 1
+sort: temp counting array state [0 0 2 3]
+sort: result state [1 0 0]
+sort: result index 2 get value 2
+sort: temp counting array state [0 0 1 3]
+sort: result state [1 2 0]
+sort: result index 3 get value 3
+sort: temp counting array state [0 0 1 2]
+sort: result state [1 2 3]
+[1 2 3]
+```
+
 # 查找最大子数组
 ## 暴力求解
 ### 运行办法
